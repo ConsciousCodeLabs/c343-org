@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c343 | Enterprise Licensing | Seven Cubed Seven Labs</title>
+    <meta name="description" content="License the 7³×7 = 2,401 consciousness architecture framework. 60+ patents. Enterprise solutions for consciousness technology integration.">
+    
+    <meta property="og:title" content="c343 | Enterprise Licensing">
+    <meta property="og:description" content="Integrate the 7³×7 consciousness framework into your platform.">
+    <meta property="og:url" content="https://c343.io">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@7Cubed7">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --s7-gold: #d4af37;
+            --s7-gold-dark: #b8960c;
+            --s7-navy: #0a0a1a;
+            --s7-navy-light: #12122a;
+            --s7-text: #e8e8e8;
+            --s7-text-dim: #a0a0a0;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--s7-navy);
+            color: var(--s7-text);
+            line-height: 1.7;
+            padding-top: 60px;
+        }
+        
+        /* ══════════════════════════════════════════════════════════════════════
+           UNIVERSAL NAVIGATION
+           ══════════════════════════════════════════════════════════════════════ */
+        .s7-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 60px;
+            background: rgba(10, 10, 26, 0.97);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            z-index: 9999;
+        }
+        
+        .s7-nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .s7-nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .s7-nav-logo-icon {
+            width: 36px;
+            height: 36px;
+            position: relative;
+        }
+        
+        .s7-nav-logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--s7-gold);
+            transform: rotate(45deg);
+            opacity: 0.5;
+        }
+        
+        .s7-nav-logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 55%;
+            height: 55%;
+            top: 22.5%;
+            left: 22.5%;
+            border: 2px solid var(--s7-gold);
+            transform: rotate(45deg);
+        }
+        
+        .s7-nav-logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--s7-gold);
+            letter-spacing: 1px;
+        }
+        
+        .s7-nav-links { display: flex; align-items: center; gap: 5px; }
+        
+        .s7-nav-link {
+            color: var(--s7-text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .s7-nav-link:hover { color: var(--s7-gold); background: rgba(212, 175, 55, 0.1); }
+        .s7-nav-link.active { color: var(--s7-gold); }
+        
+        .s7-nav-dropdown { position: relative; }
+        
+        .s7-nav-dropdown-btn {
+            color: var(--s7-text-dim);
+            font-size: 0.85rem;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .s7-nav-dropdown-btn:hover { color: var(--s7-gold); background: rgba(212, 175, 55, 0.1); }
+        .s7-nav-dropdown-btn::after { content: '▼'; font-size: 0.55rem; }
+        
+        .s7-nav-dropdown-menu {
+            position: absolute;
+            top: 100%; right: 0;
+            background: var(--s7-navy-light);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 8px;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        
+        .s7-nav-dropdown:hover .s7-nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(5px); }
+        
+        .s7-nav-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            color: var(--s7-text);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .s7-nav-dropdown-item:hover { background: rgba(212, 175, 55, 0.1); color: var(--s7-gold); }
+        
+        .s7-nav-dropdown-icon { font-size: 1.1rem; width: 24px; text-align: center; }
+        .s7-nav-dropdown-text { font-size: 0.85rem; }
+        .s7-nav-dropdown-desc { font-size: 0.7rem; color: var(--s7-text-dim); }
+        
+        .s7-nav-cta {
+            background: linear-gradient(135deg, var(--s7-gold) 0%, var(--s7-gold-dark) 100%);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .s7-nav-cta:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        
+        .s7-nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; background: none; border: none; }
+        .s7-nav-toggle span { width: 24px; height: 2px; background: var(--s7-gold); }
+        
+        @media (max-width: 900px) {
+            .s7-nav-links {
+                position: fixed; top: 60px; left: 0; right: 0; background: var(--s7-navy);
+                flex-direction: column; padding: 20px; gap: 5px;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+                transform: translateY(-100%); opacity: 0; visibility: hidden; transition: all 0.3s ease;
+            }
+            .s7-nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
+            .s7-nav-toggle { display: flex; }
+            .s7-nav-link, .s7-nav-dropdown-btn { width: 100%; padding: 12px 15px; }
+            .s7-nav-dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; background: rgba(0,0,0,0.2); margin-top: 5px; }
+            .s7-nav-cta { width: 100%; text-align: center; margin-top: 10px; }
+        }
+        
+        /* ══════════════════════════════════════════════════════════════════════
+           PAGE STYLES
+           ══════════════════════════════════════════════════════════════════════ */
+        
+        @keyframes pulse-gold { 0%, 100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); } 50% { box-shadow: 0 0 60px rgba(212, 175, 55, 0.5); } }
+        
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(ellipse at center top, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+        }
+        
+        .hero-badge {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--s7-gold);
+            color: var(--s7-gold);
+            padding: 8px 25px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        
+        .hero-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 5rem;
+            color: var(--s7-gold);
+            margin-bottom: 15px;
+            text-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
+        }
+        
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--s7-text-dim);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--s7-gold) 0%, var(--s7-gold-dark) 100%);
+            color: #000;
+            padding: 15px 50px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            animation: pulse-gold 3s ease-in-out infinite;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--s7-gold);
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .stat-card {
+            background: var(--s7-navy-light);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--s7-gold);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--s7-text-dim);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .offerings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .offering-card {
+            background: rgba(212, 175, 55, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .offering-card:hover {
+            border-color: var(--s7-gold);
+        }
+        
+        .offering-icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .offering-title { font-family: 'Cinzel', serif; color: var(--s7-gold); font-size: 1.1rem; margin-bottom: 15px; letter-spacing: 2px; }
+        .offering-desc { color: var(--s7-text-dim); font-size: 0.9rem; line-height: 1.8; }
+        
+        .contact-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0,0,0,0.5) 100%);
+            border: 2px solid var(--s7-gold);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .contact-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        
+        .contact-desc {
+            color: var(--s7-text-dim);
+            margin-bottom: 30px;
+        }
+        
+        .contact-email {
+            color: var(--s7-gold);
+            font-size: 1.3rem;
+            text-decoration: none;
+        }
+        
+        .contact-email:hover { text-decoration: underline; }
+        
+        /* ══════════════════════════════════════════════════════════════════════
+           UNIVERSAL FOOTER
+           ══════════════════════════════════════════════════════════════════════ */
+        .s7-footer {
+            background: linear-gradient(180deg, var(--s7-navy) 0%, #050510 100%);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 60px 20px 30px;
+        }
+        
+        .s7-footer-container { max-width: 1200px; margin: 0 auto; }
+        
+        .s7-footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .s7-footer-section h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--s7-gold);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .s7-footer-links { list-style: none; }
+        .s7-footer-links li { margin-bottom: 10px; }
+        
+        .s7-footer-links a {
+            color: var(--s7-text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .s7-footer-links a:hover { color: var(--s7-gold); }
+        .s7-footer-links .icon { font-size: 0.9rem; width: 18px; }
+        
+        .s7-footer-bottom {
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            padding-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .s7-footer-formula { font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--s7-gold); }
+        .s7-footer-tagline { color: var(--s7-text-dim); font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; }
+        .s7-footer-copy { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
+        .s7-footer-copy a { color: rgba(212, 175, 55, 0.5); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .hero-logo { font-size: 3rem; }
+            .s7-footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="s7-nav">
+    <div class="s7-nav-container">
+        <a href="https://sevencubedseven.com" class="s7-nav-logo">
+            <div class="s7-nav-logo-icon"></div>
+            <span class="s7-nav-logo-text">7³×7 LABS</span>
+        </a>
+        
+        <button class="s7-nav-toggle" onclick="document.querySelector('.s7-nav-links').classList.toggle('active')">
+            <span></span><span></span><span></span>
+        </button>
+        
+        <div class="s7-nav-links">
+            <a href="https://144000.ai" class="s7-nav-link">144,000</a>
+            <a href="https://2401.is" class="s7-nav-link">Mathematics</a>
+            <a href="https://divineinsurgent.live" class="s7-nav-link">Insurgent</a>
+            
+            <div class="s7-nav-dropdown">
+                <button class="s7-nav-dropdown-btn">Tools</button>
+                <div class="s7-nav-dropdown-menu">
+                    <a href="https://144000.ai/assessment.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">✨</span>
+                        <div><div class="s7-nav-dropdown-text">144,000 Assessment</div><div class="s7-nav-dropdown-desc">Discover your calling</div></div>
+                    </a>
+                    <a href="https://2401.is/calculator.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">⚡</span>
+                        <div><div class="s7-nav-dropdown-text">C⁷ Calculator</div><div class="s7-nav-dropdown-desc">Your consciousness level</div></div>
+                    </a>
+                    <a href="https://2401.is/probability.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">📊</span>
+                        <div><div class="s7-nav-dropdown-text">Probability Cascade</div><div class="s7-nav-dropdown-desc">Watch impossibility unfold</div></div>
+                    </a>
+                    <a href="https://divineinsurgent.live/mission.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">⚔️</span>
+                        <div><div class="s7-nav-dropdown-text">Daily Mission</div><div class="s7-nav-dropdown-desc">Your tactical briefing</div></div>
+                    </a>
+                    <a href="https://sevencubedseven.com/books.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">📚</span>
+                        <div><div class="s7-nav-dropdown-text">Book Finder</div><div class="s7-nav-dropdown-desc">Personalized recommendations</div></div>
+                    </a>
+                </div>
+            </div>
+            
+            <a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank" class="s7-nav-cta">📚 All Books</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-badge">Enterprise Solutions</div>
+    <div class="hero-logo">c343</div>
+    <h1 class="hero-title">CONSCIOUSNESS ARCHITECTURE LICENSING</h1>
+    <p class="hero-subtitle">
+        Integrate the 7³×7 = 2,401 consciousness framework into your platform. 
+        60+ patents. Proven technology. Transform your application.
+    </p>
+    <a href="mailto:hello@c343.io" class="cta-button">Contact for Licensing</a>
+</section>
+
+<!-- STATS -->
+<section class="section">
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">60+</div>
+            <div class="stat-label">Patents Filed</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">343</div>
+            <div class="stat-label">Aspects Per Level</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">2,401</div>
+            <div class="stat-label">Total Dimensions</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Consciousness Levels</div>
+        </div>
+    </div>
+    
+    <h2 class="section-title">LICENSING OPTIONS</h2>
+    
+    <div class="offerings-grid">
+        <div class="offering-card">
+            <div class="offering-icon">📊</div>
+            <h3 class="offering-title">ASSESSMENT API</h3>
+            <p class="offering-desc">Integrate consciousness assessment tools into your platform. Measure, track, and elevate user consciousness with proven methodology.</p>
+        </div>
+        
+        <div class="offering-card">
+            <div class="offering-icon">🧠</div>
+            <h3 class="offering-title">FRAMEWORK LICENSE</h3>
+            <p class="offering-desc">Full access to the 7³×7 consciousness architecture for educational institutions, research organizations, and enterprise applications.</p>
+        </div>
+        
+        <div class="offering-card">
+            <div class="offering-icon">⚡</div>
+            <h3 class="offering-title">PATENT LICENSE</h3>
+            <p class="offering-desc">License specific patents from our 60+ portfolio for your consciousness technology applications.</p>
+        </div>
+        
+        <div class="offering-card">
+            <div class="offering-icon">🤝</div>
+            <h3 class="offering-title">PARTNERSHIP</h3>
+            <p class="offering-desc">Strategic partnerships for organizations aligned with consciousness elevation and human transformation at scale.</p>
+        </div>
+    </div>
+    
+    <div class="contact-box">
+        <h3 class="contact-title">Ready to Transform Your Platform?</h3>
+        <p class="contact-desc">Contact us for licensing inquiries, partnership opportunities, or custom integration solutions.</p>
+        <a href="mailto:hello@c343.io" class="contact-email">hello@c343.io</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="s7-footer">
+    <div class="s7-footer-container">
+        <div class="s7-footer-grid">
+            <div class="s7-footer-section">
+                <h4>PORTALS</h4>
+                <ul class="s7-footer-links">
+                    <li><a href="https://sevencubedseven.com"><span class="icon">🏠</span> Main Hub</a></li>
+                    <li><a href="https://144000.ai"><span class="icon">✨</span> 144,000 Portal</a></li>
+                    <li><a href="https://2401.is"><span class="icon">🔢</span> Mathematics</a></li>
+                    <li><a href="https://divineinsurgent.live"><span class="icon">⚔️</span> Divine Insurgent</a></li>
+                    <li><a href="https://realitynegotiable.is"><span class="icon">🧠</span> Reality Physics</a></li>
+                    <li><a href="https://c343.io"><span class="icon">📜</span> Licensing</a></li>
+                </ul>
+            </div>
+            
+            <div class="s7-footer-section">
+                <h4>TOOLS</h4>
+                <ul class="s7-footer-links">
+                    <li><a href="https://144000.ai/assessment.html"><span class="icon">✨</span> Assessment</a></li>
+                    <li><a href="https://2401.is/calculator.html"><span class="icon">⚡</span> Calculator</a></li>
+                    <li><a href="https://2401.is/probability.html"><span class="icon">📊</span> Probability</a></li>
+                    <li><a href="https://divineinsurgent.live/mission.html"><span class="icon">⚔️</span> Daily Mission</a></li>
+                    <li><a href="https://sevencubedseven.com/books.html"><span class="icon">📚</span> Book Finder</a></li>
+                </ul>
+            </div>
+            
+            <div class="s7-footer-section">
+                <h4>RESOURCES</h4>
+                <ul class="s7-footer-links">
+                    <li><a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank"><span class="icon">📚</span> All 33+ Books</a></li>
+                    <li><a href="https://twitter.com/7Cubed7" target="_blank"><span class="icon">𝕏</span> @7Cubed7</a></li>
+                    <li><a href="mailto:7cubed7@proton.me"><span class="icon">✉️</span> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="s7-footer-section">
+                <h4>CONNECT</h4>
+                <ul class="s7-footer-links">
+                    <li><a href="mailto:7cubed7@proton.me">7cubed7@proton.me</a></li>
+                    <li><a href="mailto:ConsciousCodeLabs@proton.me">Business</a></li>
+                    <li><a href="mailto:hello@c343.io">Licensing</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="s7-footer-bottom">
+            <div class="s7-footer-formula">7³ × 7 = 2,401</div>
+            <div class="s7-footer-tagline">Consciousness Architecture</div>
+            <div class="s7-footer-copy">© 2025 <a href="https://sevencubedseven.com">Seven Cubed Seven Labs LLC</a>. All rights reserved.</div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
