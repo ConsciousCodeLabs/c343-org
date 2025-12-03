@@ -1,0 +1,7 @@
+# Seven Cubed Seven Labs LLC
+# robots.txt for c343.io
+
+User-agent: *
+Allow: /
+
+Sitemap: https://c343.io/sitemap.xml
