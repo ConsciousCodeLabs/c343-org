@@ -671,18 +671,83 @@
       margin-left: auto;
       margin-right: auto;
     }
-    .calendly-placeholder {
-      border: 1px dashed var(--gold-border);
-      padding: 40px;
-      max-width: 500px;
+    .calendly-inline-widget {
+      max-width: 700px;
       margin: 0 auto 28px;
     }
-    .calendly-placeholder p {
+
+    /* ═══ BOOKING CARDS ═══ */
+    .booking-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 720px;
+      margin: 32px auto;
+    }
+    .booking-card {
+      border: 1px solid var(--gold-border);
+      padding: 24px 20px;
+      text-align: center;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: block;
+      background: rgba(10,10,26,0.5);
+    }
+    .booking-card:hover {
+      border-color: var(--gold);
+      background: rgba(212,175,55,0.08);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(212,175,55,0.12);
+    }
+    .booking-card.booking-featured {
+      border-color: var(--gold);
+      background: rgba(212,175,55,0.06);
+    }
+    .booking-tier {
       font-family: var(--ff-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .booking-name {
+      font-family: var(--ff-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .booking-detail {
+      font-family: var(--ff-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+    }
+    .cta-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 300px;
+      margin: 28px auto;
+    }
+    .cta-divider::before,
+    .cta-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold-border);
+    }
+    .cta-divider span {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
       color: var(--text-faint);
-      line-height: 2;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 768px) {
+      .booking-grid { grid-template-columns: 1fr; max-width: 320px; }
     }
     .cta-btn {
       display: inline-block;
@@ -891,7 +956,7 @@
           <div class="tier-item">Written summary with 3&ndash;5 insights</div>
           <div class="tier-item">One follow-up email for questions</div>
         </div>
-        <a href="#contact" class="tier-cta">Book a Strategy Session</a>
+        <a href="https://calendly.com/7cubed7-proton/trinity-node-strategy-session" target="_blank" class="tier-cta">Book a Strategy Session</a>
       </div>
 
       <!-- TIER 2 -->
@@ -914,7 +979,7 @@
           <div class="tier-item">Patent filing strategy &amp; prior art landscape</div>
           <div class="tier-item">30-day follow-up call to refine concepts</div>
         </div>
-        <a href="#contact" class="tier-cta">Book a Workshop</a>
+        <a href="https://calendly.com/7cubed7-proton/ai-patent-discovery-workshop" target="_blank" class="tier-cta">Book a Workshop</a>
       </div>
 
       <!-- TIER 3 -->
@@ -937,7 +1002,7 @@
           <div class="tier-item">60-day implementation support (email)</div>
           <div class="tier-item">One 60-minute check-in call at day 30</div>
         </div>
-        <a href="#contact" class="tier-cta">Book an Implementation</a>
+        <a href="https://calendly.com/7cubed7-proton/framework-implementation" target="_blank" class="tier-cta">Book an Implementation</a>
       </div>
     </div>
   </section>
@@ -1055,18 +1120,28 @@
   <!-- ═══════════════ CTA ═══════════════ -->
   <div class="cta-band" id="contact">
     <h2>Ready to Apply the Framework?</h2>
-    <p>Book a session below, or reach out directly. We respond within 24 hours.</p>
+    <p>Choose your session and book directly. We respond within 24 hours.</p>
 
-    <!-- CALENDLY PLACEHOLDER — Replace with your Calendly embed -->
-    <div class="calendly-placeholder">
-      <p>
-        [ CALENDLY EMBED GOES HERE ]<br><br>
-        Replace this div with:<br>
-        &lt;div class="calendly-inline-widget"<br>
-        data-url="https://calendly.com/YOUR-LINK"<br>
-        style="min-width:320px;height:630px;"&gt;&lt;/div&gt;<br>
-        &lt;script src="https://assets.calendly.com/assets/external/widget.js"&gt;&lt;/script&gt;
-      </p>
+    <div class="booking-grid">
+      <a href="https://calendly.com/7cubed7-proton/trinity-node-strategy-session" target="_blank" class="booking-card">
+        <div class="booking-tier">Tier 1 &mdash; C&sup3;</div>
+        <div class="booking-name">Strategy Session</div>
+        <div class="booking-detail">90 min &middot; $297</div>
+      </a>
+      <a href="https://calendly.com/7cubed7-proton/ai-patent-discovery-workshop" target="_blank" class="booking-card booking-featured">
+        <div class="booking-tier">Tier 2 &mdash; C&sup4;</div>
+        <div class="booking-name">Patent Discovery Workshop</div>
+        <div class="booking-detail">4 hours &middot; $497</div>
+      </a>
+      <a href="https://calendly.com/7cubed7-proton/framework-implementation" target="_blank" class="booking-card">
+        <div class="booking-tier">Tier 3 &mdash; C&sup5;</div>
+        <div class="booking-name">Framework Implementation</div>
+        <div class="booking-detail">Full day &middot; $997</div>
+      </a>
+    </div>
+
+    <div class="cta-divider">
+      <span>or</span>
     </div>
 
     <a href="mailto:7cubed7@proton.me?subject=Consulting%20Inquiry%20-%20c343.org" class="cta-btn">Email Us Directly</a>
@@ -1105,7 +1180,7 @@
           <h4>Connect</h4>
           <a href="mailto:7cubed7@proton.me">7cubed7@proton.me</a>
           <a href="mailto:ConsciousCodeLabs@proton.me">Business Inquiries</a>
-          <a href="mailto:hello@c343.io">Licensing</a>
+          <a href="mailto:7cubed7@proton.me">Licensing</a>
         </div>
       </div>
       <div class="footer-bottom">
