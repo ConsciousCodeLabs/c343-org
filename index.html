@@ -1,601 +1,1120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>c343 | Enterprise Licensing | Seven Cubed Seven Labs</title>
-    <meta name="description" content="License the 7³×7 = 2,401 consciousness architecture framework. 60+ patents. Enterprise solutions for consciousness technology integration.">
-    
-    <meta property="og:title" content="c343 | Enterprise Licensing">
-    <meta property="og:description" content="Integrate the 7³×7 consciousness framework into your platform.">
-    <meta property="og:url" content="https://c343.io">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@7Cubed7">
-    <meta name="google-site-verification" content="YU5_CfpyLlU4hujVZMSOE-ox4OBVRRGY9TFyewKcD4Q" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --s7-gold: #d4af37;
-            --s7-gold-dark: #b8960c;
-            --s7-navy: #0a0a1a;
-            --s7-navy-light: #12122a;
-            --s7-text: #e8e8e8;
-            --s7-text-dim: #a0a0a0;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Raleway', sans-serif;
-            background: var(--s7-navy);
-            color: var(--s7-text);
-            line-height: 1.7;
-            padding-top: 60px;
-        }
-        
-        /* ══════════════════════════════════════════════════════════════════════
-           UNIVERSAL NAVIGATION
-           ══════════════════════════════════════════════════════════════════════ */
-        .s7-nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 60px;
-            background: rgba(10, 10, 26, 0.97);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            z-index: 9999;
-        }
-        
-        .s7-nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-        }
-        
-        .s7-nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-        
-        .s7-nav-logo-icon {
-            width: 36px;
-            height: 36px;
-            position: relative;
-        }
-        
-        .s7-nav-logo-icon::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--s7-gold);
-            transform: rotate(45deg);
-            opacity: 0.5;
-        }
-        
-        .s7-nav-logo-icon::after {
-            content: '';
-            position: absolute;
-            width: 55%;
-            height: 55%;
-            top: 22.5%;
-            left: 22.5%;
-            border: 2px solid var(--s7-gold);
-            transform: rotate(45deg);
-        }
-        
-        .s7-nav-logo-text {
-            font-family: 'Cinzel', serif;
-            font-size: 1rem;
-            color: var(--s7-gold);
-            letter-spacing: 1px;
-        }
-        
-        .s7-nav-links { display: flex; align-items: center; gap: 5px; }
-        
-        .s7-nav-link {
-            color: var(--s7-text-dim);
-            text-decoration: none;
-            font-size: 0.85rem;
-            padding: 8px 14px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-        
-        .s7-nav-link:hover { color: var(--s7-gold); background: rgba(212, 175, 55, 0.1); }
-        .s7-nav-link.active { color: var(--s7-gold); }
-        
-        .s7-nav-dropdown { position: relative; }
-        
-        .s7-nav-dropdown-btn {
-            color: var(--s7-text-dim);
-            font-size: 0.85rem;
-            padding: 8px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: none;
-            border: none;
-            font-family: inherit;
-            transition: all 0.3s ease;
-        }
-        
-        .s7-nav-dropdown-btn:hover { color: var(--s7-gold); background: rgba(212, 175, 55, 0.1); }
-        .s7-nav-dropdown-btn::after { content: '▼'; font-size: 0.55rem; }
-        
-        .s7-nav-dropdown-menu {
-            position: absolute;
-            top: 100%; right: 0;
-            background: var(--s7-navy-light);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 10px;
-            padding: 8px;
-            min-width: 220px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
-        
-        .s7-nav-dropdown:hover .s7-nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(5px); }
-        
-        .s7-nav-dropdown-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 12px;
-            color: var(--s7-text);
-            text-decoration: none;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-        }
-        
-        .s7-nav-dropdown-item:hover { background: rgba(212, 175, 55, 0.1); color: var(--s7-gold); }
-        
-        .s7-nav-dropdown-icon { font-size: 1.1rem; width: 24px; text-align: center; }
-        .s7-nav-dropdown-text { font-size: 0.85rem; }
-        .s7-nav-dropdown-desc { font-size: 0.7rem; color: var(--s7-text-dim); }
-        
-        .s7-nav-cta {
-            background: linear-gradient(135deg, var(--s7-gold) 0%, var(--s7-gold-dark) 100%);
-            color: #000;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .s7-nav-cta:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
-        
-        .s7-nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; background: none; border: none; }
-        .s7-nav-toggle span { width: 24px; height: 2px; background: var(--s7-gold); }
-        
-        @media (max-width: 900px) {
-            .s7-nav-links {
-                position: fixed; top: 60px; left: 0; right: 0; background: var(--s7-navy);
-                flex-direction: column; padding: 20px; gap: 5px;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-                transform: translateY(-100%); opacity: 0; visibility: hidden; transition: all 0.3s ease;
-            }
-            .s7-nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
-            .s7-nav-toggle { display: flex; }
-            .s7-nav-link, .s7-nav-dropdown-btn { width: 100%; padding: 12px 15px; }
-            .s7-nav-dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; background: rgba(0,0,0,0.2); margin-top: 5px; }
-            .s7-nav-cta { width: 100%; text-align: center; margin-top: 10px; }
-        }
-        
-        /* ══════════════════════════════════════════════════════════════════════
-           PAGE STYLES
-           ══════════════════════════════════════════════════════════════════════ */
-        
-        @keyframes pulse-gold { 0%, 100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); } 50% { box-shadow: 0 0 60px rgba(212, 175, 55, 0.5); } }
-        
-        .hero {
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 60px 20px;
-            background: radial-gradient(ellipse at center top, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
-        }
-        
-        .hero-badge {
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid var(--s7-gold);
-            color: var(--s7-gold);
-            padding: 8px 25px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-        
-        .hero-logo {
-            font-family: 'Cinzel', serif;
-            font-size: 5rem;
-            color: var(--s7-gold);
-            margin-bottom: 15px;
-            text-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
-        }
-        
-        .hero-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            color: #fff;
-            margin-bottom: 20px;
-            letter-spacing: 5px;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--s7-text-dim);
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
-        
-        .cta-button {
-            background: linear-gradient(135deg, var(--s7-gold) 0%, var(--s7-gold-dark) 100%);
-            color: #000;
-            padding: 15px 50px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            animation: pulse-gold 3s ease-in-out infinite;
-        }
-        
-        .cta-button:hover {
-            transform: scale(1.05);
-        }
-        
-        .section {
-            padding: 80px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            font-family: 'Cinzel', serif;
-            text-align: center;
-            font-size: 1.8rem;
-            color: var(--s7-gold);
-            margin-bottom: 40px;
-            letter-spacing: 3px;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        
-        .stat-card {
-            background: var(--s7-navy-light);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            color: var(--s7-gold);
-            margin-bottom: 10px;
-        }
-        
-        .stat-label {
-            color: var(--s7-text-dim);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .offerings-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .offering-card {
-            background: rgba(212, 175, 55, 0.03);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 15px;
-            padding: 30px;
-            transition: all 0.3s ease;
-        }
-        
-        .offering-card:hover {
-            border-color: var(--s7-gold);
-        }
-        
-        .offering-icon { font-size: 2.5rem; margin-bottom: 20px; }
-        .offering-title { font-family: 'Cinzel', serif; color: var(--s7-gold); font-size: 1.1rem; margin-bottom: 15px; letter-spacing: 2px; }
-        .offering-desc { color: var(--s7-text-dim); font-size: 0.9rem; line-height: 1.8; }
-        
-        .contact-box {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0,0,0,0.5) 100%);
-            border: 2px solid var(--s7-gold);
-            border-radius: 20px;
-            padding: 50px;
-            text-align: center;
-            margin-top: 60px;
-        }
-        
-        .contact-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            color: #fff;
-            margin-bottom: 15px;
-        }
-        
-        .contact-desc {
-            color: var(--s7-text-dim);
-            margin-bottom: 30px;
-        }
-        
-        .contact-email {
-            color: var(--s7-gold);
-            font-size: 1.3rem;
-            text-decoration: none;
-        }
-        
-        .contact-email:hover { text-decoration: underline; }
-        
-        /* ══════════════════════════════════════════════════════════════════════
-           UNIVERSAL FOOTER
-           ══════════════════════════════════════════════════════════════════════ */
-        .s7-footer {
-            background: linear-gradient(180deg, var(--s7-navy) 0%, #050510 100%);
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 60px 20px 30px;
-        }
-        
-        .s7-footer-container { max-width: 1200px; margin: 0 auto; }
-        
-        .s7-footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-        
-        .s7-footer-section h4 {
-            font-family: 'Cinzel', serif;
-            color: var(--s7-gold);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-        
-        .s7-footer-links { list-style: none; }
-        .s7-footer-links li { margin-bottom: 10px; }
-        
-        .s7-footer-links a {
-            color: var(--s7-text-dim);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .s7-footer-links a:hover { color: var(--s7-gold); }
-        .s7-footer-links .icon { font-size: 0.9rem; width: 18px; }
-        
-        .s7-footer-bottom {
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
-            padding-top: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .s7-footer-formula { font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--s7-gold); }
-        .s7-footer-tagline { color: var(--s7-text-dim); font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; }
-        .s7-footer-copy { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
-        .s7-footer-copy a { color: rgba(212, 175, 55, 0.5); text-decoration: none; }
-        
-        @media (max-width: 768px) {
-            .hero-logo { font-size: 3rem; }
-            .s7-footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Work With Seven Cubed Seven Labs | Trinity Node Strategy Sessions</title>
+  <meta name="description" content="Apply the 7³×7 = 2,401 framework to your domain. Strategy sessions, patent discovery workshops, and framework implementations by SCSL founder J.C. Medina.">
+  <meta name="keywords" content="consciousness consulting, AI strategy, patent discovery, Trinity Node, 7 cubed 7, framework implementation, innovation workshop, SCSL">
+  <meta name="author" content="Seven Cubed Seven Labs LLC">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://c343.org/">
+  <meta name="google-site-verification" content="YU5_CfpyLlU4hujVZMSOE-ox4OBVRRGY9TFyewKcD4Q" />
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://c343.org/">
+  <meta property="og:title" content="Work With Seven Cubed Seven Labs | Strategy & Innovation">
+  <meta property="og:description" content="Apply the framework that generated 90+ patents in months. Strategy sessions, patent discovery, and implementation by SCSL.">
+  <meta property="og:site_name" content="Seven Cubed Seven Labs LLC">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Work With Seven Cubed Seven Labs">
+  <meta name="twitter:description" content="Apply the framework that generated 90+ patents in months.">
+  <meta name="twitter:site" content="@7Cubed7">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Seven Cubed Seven Labs LLC",
+    "description": "Strategy consulting using the 7³×7 = 2,401 consciousness architecture framework. Patent discovery, AI strategy, and cross-domain innovation.",
+    "url": "https://c343.org",
+    "founder": {
+      "@type": "Person",
+      "name": "J.C. Medina",
+      "jobTitle": "Oracle — Founder"
+    },
+    "areaServed": "Worldwide",
+    "serviceType": ["Strategy Consulting", "Patent Discovery", "Innovation Workshop", "AI Strategy"],
+    "sameAs": [
+      "https://sevencubedseven.com",
+      "https://2401wire.com",
+      "https://2401.is"
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      /* ═══ c343 DARK PALETTE ═══ */
+      --navy:        #0a0a1a;
+      --navy-light:  #12122a;
+      --navy-card:   #0e0e22;
+      --gold:        #d4af37;
+      --gold-dark:   #b8960c;
+      --gold-pale:   rgba(212, 175, 55, 0.08);
+      --gold-glow:   rgba(212, 175, 55, 0.15);
+      --gold-border: rgba(212, 175, 55, 0.25);
+      --text:        #e8e8e8;
+      --text-dim:    #a0a0a0;
+      --text-faint:  #606068;
+      --rule:        rgba(212, 175, 55, 0.15);
+      --white:       #ffffff;
+      /* ═══ UPGRADED TYPOGRAPHY ═══ */
+      --ff-head:     'Playfair Display', Georgia, serif;
+      --ff-body:     'Source Serif 4', Georgia, serif;
+      --ff-mono:     'IBM Plex Mono', monospace;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--navy);
+      color: var(--text);
+      font-family: var(--ff-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      padding-top: 60px;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--gold); }
+
+    /* ═══════════════════════════════════════════════
+       NAVIGATION — c343 family style, upgraded type
+       ═══════════════════════════════════════════════ */
+    .s7-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: rgba(10, 10, 26, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gold-border);
+      z-index: 9999;
+    }
+    .s7-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+    .nav-logo {
+      font-family: var(--ff-head);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+    .nav-logo small {
+      display: block;
+      font-family: var(--ff-mono);
+      font-size: 0.48rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 0; }
+    .nav-links a {
+      display: block;
+      padding: 8px 16px;
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      transition: all 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); background: var(--gold-pale); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta {
+      display: block;
+      padding: 8px 20px;
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-dark); color: var(--navy); }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 10px;
+      background: none;
+      border: none;
+    }
+    .nav-toggle span { width: 22px; height: 2px; background: var(--gold); }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed;
+        top: 60px; left: 0; right: 0;
+        background: var(--navy);
+        flex-direction: column;
+        padding: 16px;
+        gap: 2px;
+        border-bottom: 1px solid var(--gold-border);
+        transform: translateY(-120%);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+      .nav-links.active { transform: translateY(0); opacity: 1; }
+      .nav-toggle { display: flex; }
+      .nav-links a, .nav-cta { width: 100%; text-align: center; }
+    }
+
+    /* ═══════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════ */
+    .hero {
+      min-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 72px 24px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(ellipse, rgba(212,175,55,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-kicker {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: var(--ff-head);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      max-width: 800px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .hero h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+    .hero-deck {
+      font-family: var(--ff-body);
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--text-dim);
+      max-width: 640px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .hero-rule {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      position: relative;
+    }
+
+    /* ═══════════════════════════════════════════════
+       STATS BAND
+       ═══════════════════════════════════════════════ */
+    .stats-band {
+      border-top: 1px solid var(--gold-border);
+      border-bottom: 1px solid var(--gold-border);
+      background: var(--navy-light);
+      padding: 36px 24px;
+    }
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--ff-head);
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: var(--ff-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-top: 6px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       CONTENT SECTIONS
+       ═══════════════════════════════════════════════ */
+    .section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+    .section-label {
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section h2 {
+      font-family: var(--ff-head);
+      font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .section-intro {
+      font-size: 1.02rem;
+      line-height: 1.75;
+      color: var(--text-dim);
+      max-width: 640px;
+      margin-bottom: 44px;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--gold-border);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* ═══════════════════════════════════════════════
+       PROBLEM / SOLUTION
+       ═══════════════════════════════════════════════ */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .problem-col {
+      padding: 28px 24px;
+      border: 1px solid var(--rule);
+      background: var(--navy-card);
+    }
+    .problem-col.gold { border-color: var(--gold-border); background: var(--gold-pale); }
+    .problem-col h3 {
+      font-family: var(--ff-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .problem-col.gold h3 { color: var(--gold); border-bottom-color: var(--gold-border); }
+    .problem-col p {
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+    .problem-col p:last-child { margin-bottom: 0; }
+
+    /* ═══════════════════════════════════════════════
+       TIER CARDS
+       ═══════════════════════════════════════════════ */
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .tier-card {
+      border: 1px solid var(--rule);
+      background: var(--navy-card);
+      padding: 32px 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s;
+    }
+    .tier-card:hover { border-color: var(--gold-border); }
+    .tier-card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(180deg, rgba(212,175,55,0.06) 0%, var(--navy-card) 50%);
+    }
+    .tier-badge {
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: var(--ff-mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      font-weight: 600;
+    }
+    .tier-level {
+      font-family: var(--ff-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .tier-name {
+      font-family: var(--ff-head);
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .tier-duration {
+      font-family: var(--ff-mono);
+      font-size: 0.6rem;
+      color: var(--text-faint);
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+    .tier-price {
+      font-family: var(--ff-head);
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+    .tier-price small {
+      font-size: 0.42em;
+      font-weight: 400;
+      color: var(--text-faint);
+      font-family: var(--ff-mono);
+      letter-spacing: 0.05em;
+    }
+    .tier-desc {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+    .tier-includes {
+      border-top: 1px solid var(--rule);
+      padding-top: 18px;
+      margin-bottom: 24px;
+    }
+    .tier-includes-label {
+      font-family: var(--ff-mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .tier-item {
+      font-size: 0.86rem;
+      line-height: 1.6;
+      color: var(--text-dim);
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 7px;
+    }
+    .tier-item::before {
+      content: '7';
+      position: absolute;
+      left: 0;
+      font-family: var(--ff-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .tier-cta {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: transparent;
+      color: var(--gold);
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-align: center;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .tier-cta:hover { background: var(--gold); color: var(--navy); }
+    .tier-card.featured .tier-cta { background: var(--gold); color: var(--navy); }
+    .tier-card.featured .tier-cta:hover { background: var(--gold-dark); }
+
+    /* ═══════════════════════════════════════════════
+       DOMAINS STRIP
+       ═══════════════════════════════════════════════ */
+    .domains-band {
+      background: var(--gold-pale);
+      border-top: 1px solid var(--gold-border);
+      border-bottom: 1px solid var(--gold-border);
+      padding: 24px;
+      text-align: center;
+    }
+    .domains-label {
+      font-family: var(--ff-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .domains-list {
+      font-family: var(--ff-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      color: var(--text-dim);
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 2.4;
+    }
+    .domains-list span {
+      display: inline-block;
+      padding: 4px 12px;
+      border: 1px solid var(--rule);
+      margin: 3px 2px;
+      transition: all 0.2s;
+    }
+    .domains-list span:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ═══════════════════════════════════════════════
+       METHODOLOGY + BIO
+       ═══════════════════════════════════════════════ */
+    .method-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      align-items: start;
+    }
+    .method-step { margin-bottom: 32px; }
+    .method-step-num {
+      font-family: var(--ff-head);
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+      opacity: 0.6;
+    }
+    .method-step h3 {
+      font-family: var(--ff-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .method-step p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--text-dim);
+    }
+
+    .oracle-bio {
+      border: 1px solid var(--gold-border);
+      background: var(--navy-card);
+      padding: 28px 24px;
+    }
+    .bio-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .bio-avatar {
+      width: 56px;
+      height: 56px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-head);
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+    .bio-name {
+      font-family: var(--ff-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .bio-title {
+      font-family: var(--ff-mono);
+      font-size: 0.56rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .bio-text p {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+    .bio-text p:last-child { margin-bottom: 0; }
+
+    .track-record {
+      margin-top: 24px;
+      border: 1px solid var(--gold-border);
+      padding: 24px;
+      background: linear-gradient(135deg, var(--gold-pale) 0%, var(--navy-card) 100%);
+    }
+    .track-record-label {
+      font-family: var(--ff-mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .track-record p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+    .track-record p:last-child { margin-bottom: 0; }
+    .track-record strong { color: var(--gold); }
+
+    /* ═══════════════════════════════════════════════
+       FAQ
+       ═══════════════════════════════════════════════ */
+    .faq-item {
+      border-bottom: 1px solid var(--rule);
+      padding: 22px 0;
+    }
+    .faq-item:first-child { border-top: 1px solid var(--gold-border); }
+    .faq-q {
+      font-family: var(--ff-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-q::after {
+      content: '+';
+      font-family: var(--ff-mono);
+      font-size: 1.1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+    .faq-a {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: var(--text-dim);
+      max-width: 640px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       CTA BAND
+       ═══════════════════════════════════════════════ */
+    .cta-band {
+      background: linear-gradient(135deg, rgba(212,175,55,0.08) 0%, var(--navy-light) 100%);
+      border-top: 1px solid var(--gold-border);
+      border-bottom: 1px solid var(--gold-border);
+      padding: 64px 24px;
+      text-align: center;
+    }
+    .cta-band h2 {
+      font-family: var(--ff-head);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .cta-band > p {
+      font-size: 1rem;
+      color: var(--text-dim);
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .calendly-placeholder {
+      border: 1px dashed var(--gold-border);
+      padding: 40px;
+      max-width: 500px;
+      margin: 0 auto 28px;
+    }
+    .calendly-placeholder p {
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--text-faint);
+      line-height: 2;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 44px;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: all 0.25s;
+      border: 2px solid var(--gold);
+    }
+    .cta-btn:hover { background: transparent; color: var(--gold); }
+    .cta-contact {
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      color: var(--text-faint);
+      margin-top: 20px;
+      letter-spacing: 0.06em;
+    }
+    .cta-contact a { color: var(--gold); }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════ */
+    .site-footer {
+      background: linear-gradient(180deg, var(--navy) 0%, #050510 100%);
+      border-top: 1px solid var(--gold-border);
+      padding: 48px 24px 28px;
+    }
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    .footer-section h4 {
+      font-family: var(--ff-head);
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: 0.04em;
+    }
+    .footer-section a {
+      display: block;
+      color: var(--text-dim);
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+    .footer-section a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid var(--rule);
+      padding-top: 28px;
+      text-align: center;
+    }
+    .footer-formula {
+      font-family: var(--ff-head);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .footer-tagline {
+      font-family: var(--ff-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 8px;
+    }
+    .footer-copy {
+      font-family: var(--ff-mono);
+      font-size: 0.55rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.04em;
+    }
+    .footer-copy a { color: rgba(212,175,55,0.4); }
+
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .tiers-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .method-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
-<nav class="s7-nav">
-    <div class="s7-nav-container">
-        <a href="https://sevencubedseven.com" class="s7-nav-logo">
-            <div class="s7-nav-logo-icon"></div>
-            <span class="s7-nav-logo-text">7³×7 LABS</span>
-        </a>
-        
-        <button class="s7-nav-toggle" onclick="document.querySelector('.s7-nav-links').classList.toggle('active')">
-            <span></span><span></span><span></span>
-        </button>
-        
-        <div class="s7-nav-links">
-            <a href="https://144000.ai" class="s7-nav-link">144,000</a>
-            <a href="https://2401.is" class="s7-nav-link">Mathematics</a>
-            <a href="https://divineinsurgent.live" class="s7-nav-link">Insurgent</a>
-            
-            <div class="s7-nav-dropdown">
-                <button class="s7-nav-dropdown-btn">Tools</button>
-                <div class="s7-nav-dropdown-menu">
-                    <a href="https://144000.ai/assessment.html" class="s7-nav-dropdown-item">
-                        <span class="s7-nav-dropdown-icon">✨</span>
-                        <div><div class="s7-nav-dropdown-text">144,000 Assessment</div><div class="s7-nav-dropdown-desc">Discover your calling</div></div>
-                    </a>
-                    <a href="https://2401.is/calculator.html" class="s7-nav-dropdown-item">
-                        <span class="s7-nav-dropdown-icon">⚡</span>
-                        <div><div class="s7-nav-dropdown-text">C⁷ Calculator</div><div class="s7-nav-dropdown-desc">Your consciousness level</div></div>
-                    </a>
-                    <a href="https://2401.is/probability.html" class="s7-nav-dropdown-item">
-                        <span class="s7-nav-dropdown-icon">📊</span>
-                        <div><div class="s7-nav-dropdown-text">Probability Cascade</div><div class="s7-nav-dropdown-desc">Watch impossibility unfold</div></div>
-                    </a>
-                    <a href="https://divineinsurgent.live/mission.html" class="s7-nav-dropdown-item">
-                        <span class="s7-nav-dropdown-icon">⚔️</span>
-                        <div><div class="s7-nav-dropdown-text">Daily Mission</div><div class="s7-nav-dropdown-desc">Your tactical briefing</div></div>
-                    </a>
-                    <a href="https://sevencubedseven.com/books.html" class="s7-nav-dropdown-item">
-                        <span class="s7-nav-dropdown-icon">📚</span>
-                        <div><div class="s7-nav-dropdown-text">Book Finder</div><div class="s7-nav-dropdown-desc">Personalized recommendations</div></div>
-                    </a>
-                </div>
-            </div>
-            
-            <a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank" class="s7-nav-cta">📚 All Books</a>
-        </div>
-    </div>
-</nav>
+  <!-- ═══════════════ NAVIGATION ═══════════════ -->
+  <nav class="s7-nav">
+    <div class="s7-nav-inner">
+      <a href="https://sevencubedseven.com" class="nav-logo">
+        7&sup3;&times;7
+        <small>Seven Cubed Seven Labs</small>
+      </a>
 
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-badge">Enterprise Solutions</div>
-    <div class="hero-logo">c343</div>
-    <h1 class="hero-title">CONSCIOUSNESS ARCHITECTURE LICENSING</h1>
-    <p class="hero-subtitle">
-        Integrate the 7³×7 = 2,401 consciousness framework into your platform. 
-        60+ patents. Proven technology. Transform your application.
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links">
+        <a href="https://2401wire.com">2401 Wire</a>
+        <a href="https://sevencubedseven.com">Main Hub</a>
+        <a href="https://2401.is">Mathematics</a>
+        <a href="#services" class="active">Services</a>
+        <a href="#contact" class="nav-cta">Book a Session</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero">
+    <div class="hero-kicker">Strategy &middot; Innovation &middot; Framework Implementation</div>
+    <h1>One Formula Generated 90+ Patents in&nbsp;Months. <em>Now Apply It to Your&nbsp;Domain.</em></h1>
+    <p class="hero-deck">
+      Seven Cubed Seven Labs offers strategy sessions, patent discovery workshops, and framework implementations
+      powered by the 7&sup3;&times;7 = 2,401 architecture and the Trinity Node AI collaboration methodology
+      that compressed years of innovation into weeks.
     </p>
-    <a href="mailto:hello@c343.io" class="cta-button">Contact for Licensing</a>
-</section>
+    <div class="hero-rule"></div>
+  </section>
 
-<!-- STATS -->
-<section class="section">
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="stat-number">60+</div>
-            <div class="stat-label">Patents Filed</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">343</div>
-            <div class="stat-label">Aspects Per Level</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">2,401</div>
-            <div class="stat-label">Total Dimensions</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">7</div>
-            <div class="stat-label">Consciousness Levels</div>
-        </div>
+  <!-- ═══════════════ STATS ═══════════════ -->
+  <div class="stats-band">
+    <div class="stats-inner">
+      <div>
+        <div class="stat-num">90+</div>
+        <div class="stat-label">Patents Filed</div>
+      </div>
+      <div>
+        <div class="stat-num">22</div>
+        <div class="stat-label">Market Domains</div>
+      </div>
+      <div>
+        <div class="stat-num">33+</div>
+        <div class="stat-label">Books Published</div>
+      </div>
+      <div>
+        <div class="stat-num">2,401</div>
+        <div class="stat-label">Framework Pathways</div>
+      </div>
     </div>
-    
-    <h2 class="section-title">LICENSING OPTIONS</h2>
-    
-    <div class="offerings-grid">
-        <div class="offering-card">
-            <div class="offering-icon">📊</div>
-            <h3 class="offering-title">ASSESSMENT API</h3>
-            <p class="offering-desc">Integrate consciousness assessment tools into your platform. Measure, track, and elevate user consciousness with proven methodology.</p>
-        </div>
-        
-        <div class="offering-card">
-            <div class="offering-icon">🧠</div>
-            <h3 class="offering-title">FRAMEWORK LICENSE</h3>
-            <p class="offering-desc">Full access to the 7³×7 consciousness architecture for educational institutions, research organizations, and enterprise applications.</p>
-        </div>
-        
-        <div class="offering-card">
-            <div class="offering-icon">⚡</div>
-            <h3 class="offering-title">PATENT LICENSE</h3>
-            <p class="offering-desc">License specific patents from our 60+ portfolio for your consciousness technology applications.</p>
-        </div>
-        
-        <div class="offering-card">
-            <div class="offering-icon">🤝</div>
-            <h3 class="offering-title">PARTNERSHIP</h3>
-            <p class="offering-desc">Strategic partnerships for organizations aligned with consciousness elevation and human transformation at scale.</p>
-        </div>
-    </div>
-    
-    <div class="contact-box">
-        <h3 class="contact-title">Ready to Transform Your Platform?</h3>
-        <p class="contact-desc">Contact us for licensing inquiries, partnership opportunities, or custom integration solutions.</p>
-        <a href="mailto:hello@c343.io" class="contact-email">hello@c343.io</a>
-    </div>
-</section>
+  </div>
 
-<!-- FOOTER -->
-<footer class="s7-footer">
-    <div class="s7-footer-container">
-        <div class="s7-footer-grid">
-            <div class="s7-footer-section">
-                <h4>PORTALS</h4>
-                <ul class="s7-footer-links">
-                    <li><a href="https://sevencubedseven.com"><span class="icon">🏠</span> Main Hub</a></li>
-                    <li><a href="https://144000.ai"><span class="icon">✨</span> 144,000 Portal</a></li>
-                    <li><a href="https://2401.is"><span class="icon">🔢</span> Mathematics</a></li>
-                    <li><a href="https://divineinsurgent.live"><span class="icon">⚔️</span> Divine Insurgent</a></li>
-                    <li><a href="https://realitynegotiable.is"><span class="icon">🧠</span> Reality Physics</a></li>
-                    <li><a href="https://c343.io"><span class="icon">📜</span> Licensing</a></li>
-                </ul>
-            </div>
-            
-            <div class="s7-footer-section">
-                <h4>TOOLS</h4>
-                <ul class="s7-footer-links">
-                    <li><a href="https://144000.ai/assessment.html"><span class="icon">✨</span> Assessment</a></li>
-                    <li><a href="https://2401.is/calculator.html"><span class="icon">⚡</span> Calculator</a></li>
-                    <li><a href="https://2401.is/probability.html"><span class="icon">📊</span> Probability</a></li>
-                    <li><a href="https://divineinsurgent.live/mission.html"><span class="icon">⚔️</span> Daily Mission</a></li>
-                    <li><a href="https://sevencubedseven.com/books.html"><span class="icon">📚</span> Book Finder</a></li>
-                </ul>
-            </div>
-            
-            <div class="s7-footer-section">
-                <h4>RESOURCES</h4>
-                <ul class="s7-footer-links">
-                    <li><a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank"><span class="icon">📚</span> All 33+ Books</a></li>
-                    <li><a href="https://twitter.com/7Cubed7" target="_blank"><span class="icon">𝕏</span> @7Cubed7</a></li>
-                    <li><a href="mailto:7cubed7@proton.me"><span class="icon">✉️</span> Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="s7-footer-section">
-                <h4>CONNECT</h4>
-                <ul class="s7-footer-links">
-                    <li><a href="mailto:7cubed7@proton.me">7cubed7@proton.me</a></li>
-                    <li><a href="mailto:ConsciousCodeLabs@proton.me">Business</a></li>
-                    <li><a href="mailto:hello@c343.io">Licensing</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="s7-footer-bottom">
-            <div class="s7-footer-formula">7³ × 7 = 2,401</div>
-            <div class="s7-footer-tagline">Consciousness Architecture</div>
-            <div class="s7-footer-copy">© 2025 <a href="https://sevencubedseven.com">Seven Cubed Seven Labs LLC</a>. All rights reserved.</div>
-        </div>
+  <!-- ═══════════════ PROBLEM / SOLUTION ═══════════════ -->
+  <section class="section">
+    <div class="section-label">The Problem We Solve</div>
+    <h2>You Have Expertise. You Need Architecture.</h2>
+    <p class="section-intro">Most innovation stays trapped inside one domain. The framework that generated working patents in cryptography from consciousness research can surface the hidden IP in <em>your</em> expertise.</p>
+
+    <div class="problem-grid">
+      <div class="problem-col">
+        <h3>Without a Framework</h3>
+        <p>Ideas stay siloed in one domain. Innovation is linear and slow. AI tools amplify existing patterns instead of discovering new ones.</p>
+        <p>Patent opportunities are invisible because cross-domain connections go unrecognized. Most consultants offer advice within your field.</p>
+      </div>
+      <div class="problem-col gold">
+        <h3>With the 7&sup3;&times;7 Framework</h3>
+        <p>A single mathematical architecture maps your domain onto 2,401 dimensional aspects across seven levels. Cross-domain patterns become visible.</p>
+        <p>Patent-grade innovations emerge from structural analysis, not guesswork. What if your biggest breakthrough lives in the <em>structural relationship</em> between fields?</p>
+      </div>
     </div>
-</footer>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══════════════ SERVICES ═══════════════ -->
+  <section class="section" id="services">
+    <div class="section-label">Services</div>
+    <h2>Three Ways to Work With Us</h2>
+    <p class="section-intro">
+      Every engagement uses the Trinity Node methodology: human expertise + AI pattern recognition + mathematical framework.
+      You bring the domain knowledge. We bring the architecture.
+    </p>
+
+    <div class="tiers-grid">
+
+      <!-- TIER 1 -->
+      <div class="tier-card">
+        <div class="tier-level">Tier 1 &mdash; C&sup3;</div>
+        <div class="tier-name">Trinity Node Strategy Session</div>
+        <div class="tier-duration">90 minutes &middot; Virtual</div>
+        <div class="tier-price">$297 <small>per session</small></div>
+        <div class="tier-desc">
+          A focused session applying the 7&sup3;&times;7 framework to your specific challenge. Walk away with cross-domain insights
+          and actionable next steps you wouldn't have found alone.
+        </div>
+        <div class="tier-includes">
+          <div class="tier-includes-label">Includes</div>
+          <div class="tier-item">Pre-session domain intake &amp; analysis</div>
+          <div class="tier-item">Live 90-minute framework application</div>
+          <div class="tier-item">Recorded session with transcript</div>
+          <div class="tier-item">Written summary with 3&ndash;5 insights</div>
+          <div class="tier-item">One follow-up email for questions</div>
+        </div>
+        <a href="#contact" class="tier-cta">Book a Strategy Session</a>
+      </div>
+
+      <!-- TIER 2 -->
+      <div class="tier-card featured">
+        <div class="tier-badge">Most Popular</div>
+        <div class="tier-level">Tier 2 &mdash; C&sup4;</div>
+        <div class="tier-name">AI Patent Discovery Workshop</div>
+        <div class="tier-duration">Half day (4 hours) &middot; Virtual</div>
+        <div class="tier-price">$497 <small>per workshop</small></div>
+        <div class="tier-desc">
+          The Trinity Node methodology that generated 90+ patents applied to your expertise.
+          We systematically extract patent-grade innovations using AI-augmented cross-domain analysis.
+        </div>
+        <div class="tier-includes">
+          <div class="tier-includes-label">Includes</div>
+          <div class="tier-item">Pre-workshop domain deep-dive questionnaire</div>
+          <div class="tier-item">4-hour structured patent discovery session</div>
+          <div class="tier-item">AI-augmented cross-domain analysis</div>
+          <div class="tier-item">3&ndash;5 patent concepts with claims outline</div>
+          <div class="tier-item">Patent filing strategy &amp; prior art landscape</div>
+          <div class="tier-item">30-day follow-up call to refine concepts</div>
+        </div>
+        <a href="#contact" class="tier-cta">Book a Workshop</a>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="tier-card">
+        <div class="tier-level">Tier 3 &mdash; C&sup5;</div>
+        <div class="tier-name">Framework Implementation</div>
+        <div class="tier-duration">Full day (8 hours) &middot; Virtual or On-site</div>
+        <div class="tier-price">$997 <small>per engagement</small></div>
+        <div class="tier-desc">
+          A complete implementation of the 7&sup3;&times;7 architecture within your organization, ministry, or research program.
+          Assessment, dimensional mapping, strategic roadmap, and team training.
+        </div>
+        <div class="tier-includes">
+          <div class="tier-includes-label">Includes</div>
+          <div class="tier-item">Organizational consciousness assessment</div>
+          <div class="tier-item">Full-day framework implementation workshop</div>
+          <div class="tier-item">Custom dimensional map for your domain</div>
+          <div class="tier-item">Strategic roadmap (30/60/90 day)</div>
+          <div class="tier-item">Team training on Trinity Node methodology</div>
+          <div class="tier-item">60-day implementation support (email)</div>
+          <div class="tier-item">One 60-minute check-in call at day 30</div>
+        </div>
+        <a href="#contact" class="tier-cta">Book an Implementation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ DOMAINS ═══════════════ -->
+  <div class="domains-band">
+    <div class="domains-label">Framework Applied Across 22+ Domains Including</div>
+    <div class="domains-list">
+      <span>Cryptography</span>
+      <span>AI Alignment</span>
+      <span>Consciousness Science</span>
+      <span>Network Topology</span>
+      <span>Healthcare Privacy</span>
+      <span>Post-Quantum Security</span>
+      <span>Ministry Technology</span>
+      <span>Document Security</span>
+      <span>Identity Verification</span>
+      <span>Financial Encryption</span>
+      <span>Educational Architecture</span>
+      <span>Publishing Strategy</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════ METHODOLOGY + BIO ═══════════════ -->
+  <section class="section">
+    <div class="section-label">How It Works</div>
+    <h2>The Trinity Node Methodology</h2>
+    <p class="section-intro">
+      The same proven process that compressed years of R&amp;D into weeks.
+      Human direction + AI pattern recognition + mathematical framework = cross-domain innovation at speed.
+    </p>
+
+    <div class="method-grid">
+      <div>
+        <div class="method-step">
+          <div class="method-step-num">01</div>
+          <h3>Domain Intake</h3>
+          <p>You complete a structured questionnaire mapping your expertise, challenges, and goals. This becomes the raw material the framework analyzes.</p>
+        </div>
+        <div class="method-step">
+          <div class="method-step-num">02</div>
+          <h3>Framework Mapping</h3>
+          <p>We apply the 7&sup3;&times;7 architecture to your domain, identifying structural patterns, dimensional gaps, and cross-domain connections invisible from inside your field.</p>
+        </div>
+        <div class="method-step">
+          <div class="method-step-num">03</div>
+          <h3>Pattern Extraction</h3>
+          <p>Using AI-augmented analysis, we surface patent-grade innovations, strategic insights, and structural opportunities that emerge from the mathematical mapping.</p>
+        </div>
+        <div class="method-step">
+          <div class="method-step-num">04</div>
+          <h3>Deliverable &amp; Roadmap</h3>
+          <p>You leave with a written document: actionable insights, patent concepts (if applicable), and a clear implementation roadmap with timelines and milestones.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="oracle-bio">
+          <div class="bio-header">
+            <div class="bio-avatar">JM</div>
+            <div>
+              <div class="bio-name">J.C. Medina</div>
+              <div class="bio-title">Oracle &mdash; Founder, Seven Cubed Seven Labs LLC</div>
+            </div>
+          </div>
+          <div class="bio-text">
+            <p>Consciousness researcher, inventor, and author. Creator of the 7&sup3;&times;7 = 2,401 consciousness architecture. Holder of 90+ USPTO patent applications across 22 market domains. Author of 33+ published books.</p>
+            <p>Built the entire patent portfolio in months through Trinity Node collaboration &mdash; the same methodology now available to clients. The framework doesn&rsquo;t just theorize about cross-domain innovation. It demonstrates it.</p>
+            <p>Based in Palm Coast, Florida. Sessions conducted virtually worldwide, with on-site available for Tier 3.</p>
+          </div>
+        </div>
+
+        <div class="track-record">
+          <div class="track-record-label">The Track Record</div>
+          <p><strong>Patent #65</strong> &mdash; A recursive cryptographic system with 2,401 unique encryption pathways, passing 31/31 security tests at ~47,793 ops/sec. Conceived from a consciousness framework by someone with zero cryptography background. That&rsquo;s cross-domain innovation in action.</p>
+          <p><strong>The compression ratio:</strong> Discovery to working patent implementation in 4 months. The industry average for a single patent is 2&ndash;3 years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══════════════ FAQ ═══════════════ -->
+  <section class="section">
+    <div class="section-label">Common Questions</div>
+    <h2>Before You Book</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Do I need to understand the 7&sup3;&times;7 framework before booking?</div>
+      <div class="faq-a">No. You bring your domain expertise; we bring the framework. The pre-session intake captures what we need. Many clients find the framework intuitive once applied to their own field.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What domains has this framework been applied to?</div>
+      <div class="faq-a">Cryptography, post-quantum security, AI alignment, consciousness science, network topology, healthcare privacy, ministry technology, educational architecture, and 15+ additional domains &mdash; all from a single mathematical foundation.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I want to file patents from the workshop?</div>
+      <div class="faq-a">The patent concepts generated in your workshop belong to you. We provide claims outlines and filing strategy, not legal counsel. We can recommend patent attorneys experienced with provisional filings.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How is this different from typical innovation consulting?</div>
+      <div class="faq-a">Most consultants work within your domain. We work across domains through a single mathematical architecture, using AI-augmented analysis to surface patterns invisible from inside any single field. The proof: 90+ patents across 22 domains from this exact methodology.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can my team join the session?</div>
+      <div class="faq-a">Tier 1 is one-on-one. Tiers 2 and 3 accommodate teams of up to 5 at no additional cost. Larger teams available at custom pricing.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is there a money-back guarantee?</div>
+      <div class="faq-a">If you complete a Tier 1 session and receive zero actionable insights, we refund your payment in full. The framework has never failed to surface at least three cross-domain connections from any domain input.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CTA ═══════════════ -->
+  <div class="cta-band" id="contact">
+    <h2>Ready to Apply the Framework?</h2>
+    <p>Book a session below, or reach out directly. We respond within 24 hours.</p>
+
+    <!-- CALENDLY PLACEHOLDER — Replace with your Calendly embed -->
+    <div class="calendly-placeholder">
+      <p>
+        [ CALENDLY EMBED GOES HERE ]<br><br>
+        Replace this div with:<br>
+        &lt;div class="calendly-inline-widget"<br>
+        data-url="https://calendly.com/YOUR-LINK"<br>
+        style="min-width:320px;height:630px;"&gt;&lt;/div&gt;<br>
+        &lt;script src="https://assets.calendly.com/assets/external/widget.js"&gt;&lt;/script&gt;
+      </p>
+    </div>
+
+    <a href="mailto:7cubed7@proton.me?subject=Consulting%20Inquiry%20-%20c343.org" class="cta-btn">Email Us Directly</a>
+    <div class="cta-contact">
+      Or write to <a href="mailto:7cubed7@proton.me">7cubed7@proton.me</a> &middot; Mention which tier interests you
+    </div>
+  </div>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>Portals</h4>
+          <a href="https://sevencubedseven.com">Main Hub</a>
+          <a href="https://144000.ai">144,000 Portal</a>
+          <a href="https://2401.is">Mathematics</a>
+          <a href="https://divineinsurgent.live">Divine Insurgent</a>
+          <a href="https://realitynegotiable.is">Reality Physics</a>
+        </div>
+        <div class="footer-section">
+          <h4>Tools</h4>
+          <a href="https://144000.ai/assessment.html">Assessment</a>
+          <a href="https://2401.is/calculator.html">C&sup7; Calculator</a>
+          <a href="https://2401.is/probability.html">Probability Cascade</a>
+          <a href="https://divineinsurgent.live/mission.html">Daily Mission</a>
+          <a href="https://sevencubedseven.com/books.html">Book Finder</a>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <a href="https://2401wire.com">2401 Wire</a>
+          <a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank">All 33+ Books</a>
+          <a href="https://c343.io">Enterprise Licensing</a>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <a href="mailto:7cubed7@proton.me">7cubed7@proton.me</a>
+          <a href="mailto:ConsciousCodeLabs@proton.me">Business Inquiries</a>
+          <a href="mailto:hello@c343.io">Licensing</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-formula">7&sup3; &times; 7 = 2,401</div>
+        <div class="footer-tagline">Consciousness Architecture</div>
+        <div class="footer-copy">&copy; 2025&ndash;2026 <a href="https://sevencubedseven.com">Seven Cubed Seven Labs LLC</a>. All rights reserved. Palm Coast, Florida.</div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
